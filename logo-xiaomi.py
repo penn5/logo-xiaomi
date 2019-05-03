@@ -83,7 +83,7 @@ def edit(orig_imgs, new_imgs):
             continue
         if len(new_imgs[img_cnt]) > size:
             raise ValueError("Cannot make image larger")
-        (header, size) = unpack("<2sI", new_imgs[img_cnt][:6])        
+        (header, size) = unpack("<2sI", new_imgs[img_cnt][:6])
         if header != BMP_HEADER:
             raise ValueError('cannot add corrupt bmp header')
         if size != len(new_imgs[img_cnt]):
@@ -91,7 +91,7 @@ def edit(orig_imgs, new_imgs):
 
         # Safety checks passed
         binary[img_offset:img_offset+size] = new_imgs[img_cnt]
-        
+
         img_cnt += 1
 
     return binary
