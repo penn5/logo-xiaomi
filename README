@@ -1,0 +1,4 @@
+Program usage is simple. This file describes how to modify and save images
+
+I use GIMP. Edit the image as you want and go to the file toolbar. Select 'Export As'. Go to the filetype dropdown and set it to "Windows BMP Image (*.bmp)". Press export. Disable RLE. In compatibility options, tick "Do not export colour space information". In advanced options, pick R8G8B8 (24 bits) and export the image. Then use the script to repack it. Note that -a arguments must be in the order to pack, denoted by the number in the filename.
+
