@@ -112,11 +112,8 @@ def main():
     parser_replace.add_argument("-a", "--image", dest='images', action='append', type=argparse.FileType('rb'), required=True)
     parser_replace.add_argument("-o", "--output", dest='output', action='store', type=argparse.FileType('wb'), required=True)
     parser_replace.set_defaults(func=replace_logo)
-    args = parser.parse_args()
-    if hasattr(args, "images"):
-        print(args.func(args.input, args.images, args.output))
-    else:
-        print(args.func(args.input, args.output))
+    args = vars(parser.parse_args())
+    print(args.pop("func")(**args))
 def extract_logo(input, output):
     os.makedirs(output, exist_ok=True)
     c = 0
